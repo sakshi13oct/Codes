@@ -29,6 +29,8 @@ public class SolutionHotel{
         sc.nextLine();
         String cabFac = sc.nextLine();
 
+        System.out.println("    ANSWER:      ");
+
         int ans = totalnoOfRoomsBooked(h, cabFac);
         if(ans <= 0 ) {
             System.out.print("No such rooms booked");
