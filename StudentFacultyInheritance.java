@@ -35,10 +35,17 @@ public class StudentFacultyInheritance{
 	    sc.nextLine();
 	    f[i] = new Faculty(firstName, lastName, age, gender,employeeId, department, designation, salary);
 	}
+
+// 	s[0] = new Student("First1","Last1",20,'M',"Roll1","Course1",2,3.8);
+// s[1] = new Student("First2","Last2",21,'F',"Roll2","Course2",3,3.9);
+// f[0] = new Faculty("Faculty1","Last3",35,'M',"ID1","Department1","Associate Professor",90000.0);
+// f[1] = new Faculty("Faculty2","Last4",40,'F',"ID2","Department2","Professor",100000.0);
     
     Student ans1 = findHighestGPAStudent(s);
     Faculty ans2 = findHighestPaidFaculty(f); 
     
+
+	System.out.println("           ANSWER            ");
     if(ans1!=null) {
         System.out.println(ans1.getRollNo());
         System.out.println(ans1.getCourse());
