@@ -3,23 +3,23 @@ public class SolutionHotel2 {
 
     public static int noOfRoomsBookedInGivenMonth(Hotel2[] hotel, String month) {
         int count = 0;
-        for(Hotel2 h:hotel2) {
-            String[] dates = h.getDateOfBooking().split(" ");
-            if(dates[i].equals(month)) {
+        for(Hotel2 h:hotel) {
+            // String[] dates = h.getDateOfBooking().split("-");
+            if(h.getDateOfBooking().contains(month)) {
                 count += h.getNoOfRoomsBooked();
             }
         }
         return count;
     } 
 
-    public Hotel2 searchHotelByWifiOption(Hotel2[] hotel, String wifiFacility) {
+    public static Hotel2 searchHotelByWifiOption(Hotel2[] hotel, String wifiFacility) {
         Hotel2 ans = null;
-        int hBill = 0;
-        int secHBill = 0;
+        double hBill = 0;
+        double secHBill = 0;
         Hotel2 hBillHotel = null;
         Hotel2 secHBillHotel = null;
 
-        for(Hotel2 h:hotel2) {
+        for(Hotel2 h:hotel) {
             if(h.getTotalBill() > hBill) {
                 secHBill = hBill;
                 secHBillHotel = hBillHotel;
@@ -38,14 +38,37 @@ public class SolutionHotel2 {
         Hotel2[] h = new Hotel2[4];
         for(int i = 0;i<4;i++) {
             int hotelId = sc.nextInt();
-            int hotelName = sc.nextInt();
+            String hotelName = sc.nextLine();
+            sc.nextLine();
             String dateOfBooking = sc.nextLine();
             int noOfRoomsBooked = sc.nextInt();
+            sc.nextLine();
             String wifiFacility = sc.nextLine();
             double totalBill = sc.nextDouble();
 
             h[i] = new Hotel2(hotelId,hotelName,dateOfBooking,noOfRoomsBooked,wifiFacility, totalBill);
         }
+        String month = sc.nextLine();
+        String wifiFac = sc.nextLine();
+
+
+
+        System.out.println("            ANSWERS           ");
+
+        int fun1 = noOfRoomsBookedInGivenMonth(h, month);
+        if(fun1 == 0) {
+            System.out.println("No rooms booked in the given month");
+        } else {
+            System.out.println(fun1);
+        }
+
+        Hotel2 fun2 = searchHotelByWifiOption(h, wifiFac);
+        if(fun2 == null) {
+            System.out.println("No such option available");
+        } else {
+            System.out.println(fun2.getHotelId());
+        }
+
     }
 }
 
