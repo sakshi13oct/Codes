@@ -1,0 +1,8 @@
+To sort the ArrayList in descending order based on totalBill: 
+arrList.sort(Comparator.comparing(Hotel2 :: getTotalBill).reversed());
+
+
+To convert ArrayList to array of Type "Sim":
+arrList.toArray(new Sim[0]);
+
+
