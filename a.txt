@@ -6,3 +6,4 @@ To convert ArrayList to array of Type "Sim":
 arrList.toArray(new Sim[0]);
 
 
+int maxi = Integer.MIN_VALUE;
