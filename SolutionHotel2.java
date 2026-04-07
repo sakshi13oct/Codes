@@ -13,24 +13,38 @@ public class SolutionHotel2 {
     } 
 
     public static Hotel2 searchHotelByWifiOption(Hotel2[] hotel, String wifiFacility) {
-        Hotel2 ans = null;
-        double hBill = 0;
-        double secHBill = 0;
-        Hotel2 hBillHotel = null;
-        Hotel2 secHBillHotel = null;
+        
+        // Hotel2 ans = null;
+        // double hBill = 0;
+        // double secHBill = 0;
+        // Hotel2 hBillHotel = null;
+        // Hotel2 secHBillHotel = null;
 
+        // for(Hotel2 h:hotel) {
+        //     if(h.getTotalBill() > hBill) {
+        //         secHBill = hBill;
+        //         secHBillHotel = hBillHotel;
+        //         hBill = h.getTotalBill();
+        //         hBillHotel = h;
+        //     } else if(h.getTotalBill() > secHBill && h.getTotalBill() != hBill) {
+        //         secHBill = h.getTotalBill();
+        //         secHBillHotel = h;
+        //     }
+        // }
+        // return secHBillHotel;
+
+        ArrayList<Hotel2> arrList = new ArrayList<>();
         for(Hotel2 h:hotel) {
-            if(h.getTotalBill() > hBill) {
-                secHBill = hBill;
-                secHBillHotel = hBillHotel;
-                hBill = h.getTotalBill();
-                hBillHotel = h;
-            } else if(h.getTotalBill() > secHBill && h.getTotalBill() != hBill) {
-                secHBill = h.getTotalBill();
-                secHBillHotel = h;
+            if(h.getWifiFacility().equalsIgnoreCase(wifiFacility)) {
+                arrList.add(h);
             }
         }
-        return secHBillHotel;
+        if(arrList.isEmpty()) {
+            return null;
+        }
+        arrList.sort(Comparator.comparing(Hotel2 :: getTotalBill).reversed());
+        return arrList.get(1);
+        
     } 
 
     public static void main(String[] args) {
@@ -48,6 +62,7 @@ public class SolutionHotel2 {
 
             h[i] = new Hotel2(hotelId,hotelName,dateOfBooking,noOfRoomsBooked,wifiFacility, totalBill);
         }
+        sc.nextLine();
         String month = sc.nextLine();
         String wifiFac = sc.nextLine();
 
