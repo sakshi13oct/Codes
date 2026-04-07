@@ -43,8 +43,8 @@ public class SolutionHotel2 {
             return null;
         }
         arrList.sort(Comparator.comparing(Hotel2 :: getTotalBill).reversed());
-        return arrList.get(1);
         
+        return arrList.get(1);
     } 
 
     public static void main(String[] args) {
