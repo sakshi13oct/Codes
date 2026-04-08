@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class SolutionMedicine {
-    public static int countMedicinesByMedicineName (Medicine[] m, String medicineName) {
+    public static int countMedicinesByMedicineName (Medicine[] medicine, String medicineName) {
         int count = 0;
         for(Medicine m:medicine) {
             if(m.getMedicineName().equalsIgnoreCase(medicineName)) {
@@ -21,7 +21,16 @@ public class SolutionMedicine {
             String medicineType = sc.nextLine();
             double price = sc.nextDouble();
 
-            m[i] = new Medicine(medicineId,)medicineName,
+            m[i] = new Medicine(medicineId,medicineName,medicineType,price);
+        }
+        sc.nextLine();
+        String mediName = sc.nextLine();
+
+        int ans = countMedicinesByMedicineName(m, mediName);
+        if(ans != 0) {
+            System.out.println(ans);
+        } else {
+            System.out.println("No medicines found with that name");
         }
     }
 }
@@ -31,6 +40,13 @@ class Medicine {
     private String medicineName;
     private String medicineType;
     private double price;
+
+    Medicine(int medicineId, String medicineName, String medicineType, double price) {
+        this.medicineId = medicineId;
+        this.medicineName = medicineName;
+        this.medicineType = medicineType;
+        this.price = price;
+    }
 
     public int getMedicineId() {
         return medicineId;
